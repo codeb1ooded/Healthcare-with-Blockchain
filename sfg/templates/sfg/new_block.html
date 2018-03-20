@@ -1,0 +1,50 @@
+{% extends "sfg/base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class= "container">
+	<div class = "row">
+		<div class = "col-md-6 col-md-offset-3">
+			<div class = "taskdetails whitecard" >
+				<h3 align="center">
+					<span class="pull-left"><form>
+						<button class="btn btn-default" id="backbutton" formaction = "{% url 'dashboard' %}" type="submit">
+							<i class=" glyphicon glyphicon-circle-arrow-left"></i>
+						</button>
+					</form></span>New Block</h3>
+					<form action="{% url 'add_block' %}" enctype="multipart/form-data" method="post">
+						{% csrf_token %}
+						<table class = "addform" align="center">
+							<tr>
+								<th>Caption </th>
+								<td><input type="text" name="caption"></td>
+							</tr>
+							<tr>
+								<th>Report: </th>
+								<td><input type="file" name="myfile"></td>
+							</tr>
+							<tr>
+								<th> Choose Patient: </th>
+								<td>
+									<select name="patient">
+										{% for patient in patients %}
+    										<option value="{{ patient.patient_id }}">{{ patient }}</option>
+										{% endfor %}
+									</select>
+								</td>
+							</tr>
+							<td><button class= "btn btn-sm btn-success" type="submit" value="Submit" >Upload</button></td>
+						</table>
+					</form>
+					{% if uploaded_file_url %}
+					<p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+					{% endif %}
+					{% if file_text %}
+					<p>FILE TEXT: {{ file_text }}</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endblock %}

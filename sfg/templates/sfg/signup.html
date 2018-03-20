@@ -1,0 +1,36 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static 'sfg/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'sfg/style.css' %}" />
+	<script src="{% static 'sfg/js/jquery-3.2.0.min.js' %}"></script>
+	<script src="{% static 'sfg/js/bootstrap.min.js' %}"></script>
+
+</head>
+<body id="signuppage">
+	<div class="jumbotron vertical-center">
+		<div class = "container">
+			<div class="row vertical-align">
+				<div class="col-xs-10 col-xs-offset-2 col-md-5 col-md-offset-1 formdiv">
+					<h1>Sign Up</h1>
+					<form method="post">
+						{% csrf_token %}
+						{% for field in form %}
+						<div class="fieldWrapper">
+							{{ field.errors }}
+							{{ field }}
+						</div>
+						{% endfor %}
+						<button class = "loginbtn btn btn-success" type="submit">Sign Up</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+{% endblock %}

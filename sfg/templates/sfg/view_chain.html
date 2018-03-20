@@ -1,0 +1,67 @@
+{% extends "sfg/base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class= "container">
+	<div class="row">
+		<h2 align="center">
+			<span class="pull-left">
+				<form>
+					<button class="btn btn-default" id="backbutton" formaction = "{% url 'dashboard' %}" type="submit">
+						<i class=" glyphicon glyphicon-circle-arrow-left"></i>Back
+					</button>
+				</form>
+			</span>Your BlockChain
+		</h2>
+
+		{% if user.block_set.all %}
+		{% for block in user.block_set.all %}
+		<div class="col-md-3">
+			<table class = "taskpool"  style="display:inline;">
+				<tr>
+					<th> block </th>
+					<th> A </th>
+				</tr>
+				<tr>
+					<td> Title</td>
+					<td>{{block.title}} </td>
+				</tr>
+				<tr>
+					<td> Report</td>
+					<td  ">{{block.text}} </td>
+				</tr>
+				<tr>
+					<td> Image</td>
+					<td><a href="{{block.image}}">view</a> </td>
+				</tr>
+				<tr>
+					<td> Timestamp</td>
+					<td>{{block.timestamp}} </td>
+				</tr>
+			</table>
+		</div>
+		{% endfor %}
+		{% endif %}
+		<div style="margin-top: 10px; margin-bottom: 15px;"></div>
+		<table class = "taskpool">
+			<tr>
+				<th> <th><th> Summary<th><th></th><th></th> </th></th></th></th>
+			</tr>
+			<tr>
+				<td><em> Your</em> </td>
+				<td><em> Predicted</em></td>
+				<td> <em>score:</em></td>
+				<td><b> {{pred_level}}</b></td>
+			</tr>
+			<tr>
+				<td> 0: Negative</td>
+				<td> 1: Mild</td>
+				<td> 2: Moderate</td>
+				<td> 3: Strong</td>
+				<td> 4: Severe</td>
+			</tr>
+		</table>
+	</div>
+</div>
+{% endblock %}

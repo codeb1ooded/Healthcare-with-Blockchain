@@ -1,0 +1,22 @@
+{% extends "sfg/base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}	
+<div class= "container">
+	<div class = "row">
+		<div class = "col-md-6 col-md-offset-3"> 
+			<br><br><br>
+			<h1 align="center">Welcome {{user}}</h1><br>
+			<div >
+				<div align="center"> 
+					<form>
+						<button formaction="{% url 'add_block' %}" class="btn btn-primary"> Add Block&nbsp;<span class="glyphicon glyphicon-plus"></span></button>&nbsp&nbsp<button formaction="{% url 'view_chain' %}" class="btn btn-primary"> View Blockchain&nbsp; </button><br><br><br>
+						<button formaction="{% url 'logout' %}" class="btn btn-danger"> Logout&nbsp; <span class="glyphicon glyphicon-log-out"></span></button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>		
+{% endblock %}

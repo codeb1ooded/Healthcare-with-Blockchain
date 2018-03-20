@@ -1,0 +1,85 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:background="#2683c2"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#2683c2"
+        android:orientation="vertical">
+
+        <LinearLayout android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical"
+            android:background="@drawable/greybackground">
+
+            <ImageView android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/logo"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView android:id="@+id/titke"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:hint="Title"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="30dp"/>
+
+            <TextView android:id="@+id/name"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:hint="Patient name"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="30dp"/>
+
+            <TextView
+                android:id="@+id/age"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:hint="Patient Age"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/sex"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:hint="Sex"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/others"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:hint="Others"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="15dp"/>
+
+            <ImageView
+                android:id="@+id/image_report"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitXY"
+                android:layout_margin="16dp"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

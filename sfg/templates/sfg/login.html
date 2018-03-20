@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+{% block content %}
+<html>
+<head>
+	<title>Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="{% static 'sfg/js/jquery-3.2.0.min.js' %}"></script>
+	<script src="{% static 'sfg/js/bootstrap.min.js' %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'sfg/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'sfg/style.css' %}" />
+</head>
+<body id="loginpage">
+	<script>
+		function fpassoverlay(){
+			alert("Please Contact Admin");
+		}
+	</script>
+	<div class="jumbotron vertical-center">
+		<div class = "container">
+			<div class="row vertical-align">
+				<div class="col-xs-10 col-xs-offset-2 col-md-5 col-md-offset-1 formdiv">
+					<h1>Login</h1>
+					<form action="{% url 'login_next' %}" method="post">
+						{% csrf_token %}
+						<div class = "loginform">
+							{% if login_message %}
+							<div class="text-danger">
+								{{login_message}}
+							</div>
+							{% endif %}
+							<div class="loginfield">
+								<input placeholder = "Username" type=text name=name class="logininput">
+							</div>
+							<div class="loginfield">
+								<input type=password name=pwd placeholder="Password" class="logininput">
+							</div>
+						</div>
+						<button class = "loginbtn btn btn-success" type="submit">Login</button>
+					</form>
+					<form>
+						<button class = "loginbtn btn btn-register" formaction = "{% url 'signup' %}">Register</button>
+					</form>
+					<p><a class="fpbtn" data-toggle="modal" data-target="#forgotpass">Forgot Password?</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+{% endblock %}
